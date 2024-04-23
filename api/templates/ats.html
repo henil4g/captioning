@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<head>
+	<title>Get SRT file from audio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="/assets/favicon.ico">
+  <!-- <link rel="stylesheet" href="/Users/maahi/Desktop/venv/templates/vta.css"> -->
+  
+  <style>
+  
+    .drop-zone {
+        max-width: 200px;
+        height: 200px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: #f9f5f5;
+        /* border: 4px dashed #f5f5f7; */
+        border-radius: 10px;
+        margin-left: 42% ;
+        margin-top: 15%;
+        background: linear-gradient(#1f1f1f, #7b57aa);
+
+    }
+    .drop-zone:hover {
+        transform: scale(1.05); /* Hover effect */    }
+    .drop-zone--over {
+        border-style: solid;
+    }
+    
+    .drop-zone__input {
+        display: none;
+    }
+    
+    .drop-zone__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #f4f2f7;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(31, 3, 74, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .drop-zone__prompt{
+        color: #ffffff;
+    }
+
+    .upload-button{
+        background: linear-gradient(#1f1f1f, #8c59ce);
+        margin-left:48%;
+        margin-top: 2%;
+        font-size: larger;
+        height: 40px;
+        width: 80px;
+        border-radius: 5px;
+        color: #ffffff;
+    }
+
+    .upload-button:hover{
+        transform: scale(1.05); /* Hover effect */
+    }
+    
+
+    </style>
+</head>
+<body style="background-image: url('/static/IMG_9194.JPG');
+height: 100vh; background-position: center;background-repeat: no-repeat; background-size: cover;">
+	  <h1 style="font-size:50px; font-family: Georgia, 'Times New Roman', Times, serif,; margin-left: 31%; margin-top: 3%; color: #ffffff;">Get SRT file from audio</h1>
+   
+    <div class="section">
+        <div class="section-overlay">
+          <form action="/upload_ats" method="post" enctype="multipart/form-data">
+            <div class="drop-zone">
+              <span class="drop-zone__prompt">Drop file here or click to upload</span>
+              <input type="file" name="file" id="file" class="drop-zone__input" accept="*.mp4">
+            </div>
+          
+              <input type="submit" value="Upload" accept=" .mp3" class="upload-button">
+          </form>
+        </div>`
+
+	<script>
+        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+  
+    dropZoneElement.addEventListener("click", (e) => {
+      inputElement.click();
+    });
+  
+    inputElement.addEventListener("change", (e) => {
+      if (inputElement.files.length) {
+        updateThumbnail(dropZoneElement, inputElement.files[0]);
+      }
+    });
+  
+    dropZoneElement.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZoneElement.classList.add("drop-zone--over");
+    });
+  
+    ["dragleave", "dragend"].forEach((type) => {
+      dropZoneElement.addEventListener(type, (e) => {
+        dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+  
+    dropZoneElement.addEventListener("drop", (e) => {
+      e.preventDefault();
+  
+      if (e.dataTransfer.files.length) {
+        inputElement.files = e.dataTransfer.files;
+        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+      }
+  
+      dropZoneElement.classList.remove("drop-zone--over");
+    });
+  });
+  
+  /**
+   * Updates the thumbnail on a drop zone element.
+   *
+   * @param {HTMLElement} dropZoneElement
+   * @param {File} file
+   */
+  function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+  
+    // First time - remove the prompt
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+      dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    }
+  
+    // First time - there is no thumbnail element, so lets create it
+    if (!thumbnailElement) {
+      thumbnailElement = document.createElement("div");
+      thumbnailElement.classList.add("drop-zone__thumb");
+      dropZoneElement.appendChild(thumbnailElement);
+    }
+  
+    thumbnailElement.dataset.label = file.name;
+  
+    // Show thumbnail for image files
+    if (file.type.startsWith("image/")) {
+      const reader = new FileReader();
+  
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+      };
+    } else {
+      thumbnailElement.style.backgroundImage = null;
+    }
+  }
+  
+    </script>
+</body>

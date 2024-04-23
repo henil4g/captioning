@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success</title>
+    <style>
+        /* Reset default margin and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Page styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #f6f5f5;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+
+        .download-button{
+            background: linear-gradient(#1f1f1f, #7b57aa);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05); /* Hover effect */
+        }
+    </style>
+</head>
+<body style="background-image: url('/static/IMG_9194.JPG'); height: 100vh; background-position: center;background-repeat: no-repeat; background-size: cover;">
+    <h1>File Uploaded Successfully!</h1>
+    <p>You can download the file using the link below:</p>
+    <button class="download-button"><a href="/download/{{ filename }}/srt" style="color: #f0f0f0; font-size:x-large;">Download</a></button>
+</body>
+</html>

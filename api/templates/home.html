@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        /* Reset default margin and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .bg-image {
+        /* The image used */
+        background-image: url("../static/IMG_9194.JPG");
+        /* Full height */
+        height: 100vh;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* Display flex for centering content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background: linear-gradient(#1f1f1f, #240a84); /* Dark-colored gradient */
+            position: fixed; /* Fixed position */
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background-color: #240a84; /* Darker shade of the color */
+        }
+
+        /* Section styles with background image */
+        .section {
+            background-image: url("../static/IMG_9194.JPG"); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Full viewport height */
+            position: relative;
+        }
+        .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); /* Dark-colored gradient */
+        }
+        .button-container {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+        }
+        .card-container {
+            margin:  30px; /* Increased margin for more space between cards */
+            height: 300px; /* Set a fixed height for all card containers */
+            flex: 1; /* Allow containers to grow and shrink equally */
+            width: 300px; /* Set a static width for all card containers */
+        }
+        .card {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(#1f1f1f, #240a84); /* Dark-colored gradient */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Added box shadow for depth */
+            transition: transform 0.3s; /* Added transition effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card img,
+        .card svg {
+            height: 100px; /* Set a fixed height for all images and SVGs */
+            width: auto; /* Allow images and SVGs to scale proportionally */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            fill: white; /* Set the color of SVGs to white */
+        }
+        .card-title {
+            font-size: 30px; /* Increased font size for the title */
+            color: white; /* Font color */
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 200;
+        }
+        .card-body {
+            font-size: 16px; /* Increased font size for the body text */
+            color: white; /* Font color */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Hover effect */
+        }
+
+        /* Footer styles */
+        footer {
+            background: linear-gradient(#1f1f1f, #240a84); /* Dark-colored gradient */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                float: none;
+                display: inline-block;
+            }
+            .card-container {
+                width: calc(50% - 40px); /* Adjusted width for smaller screens */
+                margin: 0 10px; /* Adjusted margin for smaller screens */
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    
+
+<div class="navbar">
+    <a href="/about" target="_blank" style="font-size: x-large; margin-left: 5%;">About</a>
+    <p style="color: white; font-size: xxx-large; font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 0.8%;">Home </p>
+    <a href="/team" target="_blank" style="font-size: x-large; margin-right: 5%;">Team</a>
+</div>
+
+<!--  -->
+    <div class="bg-image" 
+     style="background-image: url('/static/IMG_9194.JPG');
+            height: 100vh">
+</div>
+    <div class="section-overlay"></div>
+    <div class="button-container">
+        <div class="card-container">
+            <a href="/video_to_video" class="card">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M374.79 308.78L457.5 367a16 16 0 0022.5-14.62V159.62A16 16 0 00457.5 145l-82.71 58.22A16 16 0 00368 216.3v79.4a16 16 0 006.79 13.08z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M268 384H84a52.15 52.15 0 01-52-52V180a52.15 52.15 0 0152-52h184.48A51.68 51.68 0 01320 179.52V332a52.15 52.15 0 01-52 52z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>                -->
+                <img src="/static/film.gif" alt="Animated GIF" style="height: 80px; width: 70px; margin-left: 37%;">
+                <div class="card-body">
+                    <h5 class="card-title">Add captions to video</h5>
+                    <p class="card-text">Upload your video to add embedded subtitles and captivate your audience!</p>
+                </div>
+            </a>
+        </div>
+        <div class="card-container">
+            <a href="/video_to_audio" class="card">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 448h128M384 208v32c0 70.4-57.6 128-128 128h0c-70.4 0-128-57.6-128-128v-32M256 368v80"/><path d="M256 64a63.68 63.68 0 00-64 64v111c0 35.2 29 65 64 65s64-29 64-65V128c0-36-28-64-64-64z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>                <div class="card-body"> -->
+                    <img src="/static/volume.gif" alt="Animated GIF" style="height: 80px; width: 70px; margin-left:37%; ">
+                    <div class="card-body">
+                    <h5 class="card-title">Extract audio from video</h5>
+                    <p class="card-text">Effortlessly separate audio from your videos for creative projects!</p>
+                </div>
+            </a>
+        </div>
+        <div class="card-container">
+            <a href="/video_to_srt" class="card">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M416 221.25V416a48 48 0 01-48 48H144a48 48 0 01-48-48V96a48 48 0 0148-48h98.75a32 32 0 0122.62 9.37l141.26 141.26a32 32 0 019.37 22.62z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M256 56v120a32 32 0 0032 32h120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg> -->
+                <img src="/static/video-file.gif" alt="Animated GIF" style="height: 80px; width: 70px; margin-left:37%; ">
+                <div class="card-body">
+                    <h5 class="card-title">Get srt file from video</h5>
+                    <p class="card-text">Convert videos to text! Get accurate SRT files for accessibility and engagement.</p>
+                </div>
+            </a>
+        </div>
+        <div class="card-container">
+            <a href="/audio_to_srt" class="card">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M440 432H72a40 40 0 01-40-40V120a40 40 0 0140-40h75.89a40 40 0 0122.19 6.72l27.84 18.56a40 40 0 0022.19 6.72H440a40 40 0 0140 40v240a40 40 0 01-40 40zM32 192h448" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg> -->
+                <img src="/static/music-file.gif" alt="Animated GIF" style="height: 80px; width: 70px; margin-left:37%; ">
+                <div class="card-body">
+                    <h5 class="card-title">Get srt file from audio</h5>
+                    <p class="card-text">Convert audio to text! Get SRT files for easy transcription and accessibility.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Contact us at: pdeu@gmail.com</p>
+</footer>
+
+</body>
+</html>
